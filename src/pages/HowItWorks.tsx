@@ -1,9 +1,15 @@
+import { Helmet } from 'react-helmet-async';
 import { SectionLabel } from '../components/ui/SectionLabel';
 import { Sun, Building, FileText, Zap } from 'lucide-react';
 
 export const HowItWorks = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
+      <Helmet>
+        <title>How Virtual Net Metering Works in Rajasthan | VirtualSolar</title>
+        <meta name="description" content="Step-by-step guide to Virtual Net Metering (VNM) in Rajasthan. Learn how solar energy from an off-site plant gets credited to your AVVNL, JVVNL or JdVVNL electricity bill — no panels, no installation." />
+        <link rel="canonical" href="https://www.virtualsolar.in/how-it-works" />
+      </Helmet>
       <div className="text-center mb-16">
         <SectionLabel>The Process</SectionLabel>
         <h1 className="text-4xl font-bold text-slate-100 mb-4">Understanding Virtual Net Metering</h1>

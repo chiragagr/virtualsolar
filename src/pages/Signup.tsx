@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { SectionLabel } from '../components/ui/SectionLabel';
 import { CheckCircle2, Loader2 } from 'lucide-react';
 
@@ -44,9 +45,18 @@ export const Signup = () => {
     }
   };
 
+  const helmetMeta = (
+    <Helmet>
+      <title>Join the VirtualSolar Waitlist — Save on Electricity in Rajasthan</title>
+      <meta name="description" content="Sign up for VirtualSolar's Virtual Net Metering waitlist. Reserve your solar capacity in Rajasthan — zero upfront cost, no panels required. AVVNL, JVVNL and JdVVNL consumers welcome." />
+      <link rel="canonical" href="https://www.virtualsolar.in/signup" />
+    </Helmet>
+  );
+
   if (isSubmitted) {
     return (
       <div className="max-w-md mx-auto px-4 py-24 text-center">
+        {helmetMeta}
         <div className="w-20 h-20 bg-emerald-400/10 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle2 className="text-emerald-400" size={40} />
         </div>
@@ -59,6 +69,7 @@ export const Signup = () => {
 
   return (
     <div className="max-w-xl mx-auto px-4 py-12">
+      {helmetMeta}
       <div className="text-center mb-10">
         <SectionLabel>Join the Movement</SectionLabel>
         <h1 className="text-3xl font-bold text-slate-100 mb-4">Secure Your Spot</h1>

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { SectionLabel } from '../components/ui/SectionLabel';
 import { Users, Building, Leaf, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -5,6 +6,11 @@ import { Link } from 'react-router-dom';
 export const HousingSocieties = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
+      <Helmet>
+        <title>Solar for Housing Societies & RWAs in Rajasthan | VirtualSolar</title>
+        <meta name="description" content="Reduce your housing society's common area electricity bill by up to 40% with Virtual Net Metering. No rooftop panels needed. RERC-approved solution for RWAs and apartment complexes in Rajasthan." />
+        <link rel="canonical" href="https://www.virtualsolar.in/societies" />
+      </Helmet>
       <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
         <div>
           <SectionLabel>For RWAs & Societies</SectionLabel>

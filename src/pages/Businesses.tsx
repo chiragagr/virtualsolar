@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { SectionLabel } from '../components/ui/SectionLabel';
 import { Factory, TrendingDown, ShieldCheck, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -5,6 +6,11 @@ import { Link } from 'react-router-dom';
 export const Businesses = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
+      <Helmet>
+        <title>Commercial & Industrial Solar in Rajasthan — No Rooftop Needed | VirtualSolar</title>
+        <meta name="description" content="Cut commercial electricity costs by 24–35% with Virtual Net Metering. Ideal for shops, offices, factories and hospitals in Rajasthan. Meet ESG goals without physical infrastructure. RERC-approved." />
+        <link rel="canonical" href="https://www.virtualsolar.in/businesses" />
+      </Helmet>
       <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
         <div className="order-2 md:order-1 grid grid-cols-1 gap-4">
           <div className="p-8 bg-navy-900 border border-slate-800 rounded-2xl flex gap-6 items-center">

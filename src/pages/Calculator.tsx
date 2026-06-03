@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useState, useMemo } from 'react';
 import { SectionLabel } from '../components/ui/SectionLabel';
 import { Zap, Info } from 'lucide-react';
@@ -83,6 +84,11 @@ export const Calculator = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
+      <Helmet>
+        <title>Electricity Bill Savings Calculator — VNM Rajasthan | VirtualSolar</title>
+        <meta name="description" content="Calculate exactly how much you can save on your Rajasthan electricity bill with Virtual Net Metering. Enter your monthly bill and get instant savings estimate based on RERC slab tariffs." />
+        <link rel="canonical" href="https://www.virtualsolar.in/calculator" />
+      </Helmet>
       <div className="text-center mb-12">
         <SectionLabel>Advanced Calculator</SectionLabel>
         <h1 className="text-4xl font-bold text-slate-100 mb-2">Calculate Your VNM Savings</h1>

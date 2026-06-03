@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { SectionLabel } from '../components/ui/SectionLabel';
@@ -29,6 +30,21 @@ const AnimatedCounter = ({ end, suffix = "", prefix = "" }: { end: number, suffi
 export const Home = () => {
   return (
     <div className="w-full">
+      <Helmet>
+        <title>VirtualSolar — Virtual Net Metering in Rajasthan | Save 20–40% on Electricity</title>
+        <meta name="description" content="India's first Virtual Net Metering platform. Save 20–40% on your electricity bill in Rajasthan with zero upfront cost, no rooftop needed. RERC-approved. Join the waitlist today." />
+        <link rel="canonical" href="https://www.virtualsolar.in/" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "What is Virtual Net Metering (VNM)?", "acceptedAnswer": { "@type": "Answer", "text": "Virtual Net Metering (VNM) is a government-approved billing arrangement where solar energy generated at an off-site plant is credited directly to your DISCOM electricity bill. You save 20–40% without installing any panels." } },
+            { "@type": "Question", "name": "Is VNM legal in Rajasthan?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. VNM is governed by RERC (Grid Interactive Distributed RE Generating Systems) Third Amendment Regulations, 2025, notified in the Rajasthan Gazette on December 3, 2025." } },
+            { "@type": "Question", "name": "How much can I save with VirtualSolar?", "acceptedAnswer": { "@type": "Answer", "text": "Domestic consumers typically save 20–40% on their monthly electricity bill. With a ₹5,000 monthly bill, you can save up to ₹24,000 per year." } },
+            { "@type": "Question", "name": "Do I need to install solar panels?", "acceptedAnswer": { "@type": "Answer", "text": "No. VirtualSolar requires zero installation. There are no panels, no inverters, and no maintenance. Credits appear directly on your existing DISCOM bill." } }
+          ]
+        })}</script>
+      </Helmet>
       {/* Hero */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-amber-400/5 blur-[120px] rounded-full pointer-events-none" />

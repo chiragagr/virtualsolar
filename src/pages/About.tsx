@@ -1,8 +1,14 @@
+import { Helmet } from 'react-helmet-async';
 import { SectionLabel } from '../components/ui/SectionLabel';
 
 export const About = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
+      <Helmet>
+        <title>About VirtualSolar — JAWAI SOLAR PRIVATE LIMITED | Jaipur, Rajasthan</title>
+        <meta name="description" content="VirtualSolar (JAWAI SOLAR PRIVATE LIMITED) is India's first Virtual Net Metering aggregation platform, headquartered in Rajasthan. We democratize solar energy for apartment dwellers and businesses." />
+        <link rel="canonical" href="https://www.virtualsolar.in/about" />
+      </Helmet>
       <div className="text-center mb-16">
         <SectionLabel>Our Mission</SectionLabel>
         <h1 className="text-4xl md:text-5xl font-bold text-slate-100 mb-6">Democratizing Solar Energy</h1>
