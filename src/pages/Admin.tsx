@@ -10,6 +10,7 @@ interface WaitlistEntry {
   city: string;
   discom: string;
   category: string;
+  monthly_bill: number | null;
   created_at: string;
 }
 
@@ -127,19 +128,20 @@ export const Admin = () => {
                 <th className="px-6 py-4 font-medium">City</th>
                 <th className="px-6 py-4 font-medium">DISCOM</th>
                 <th className="px-6 py-4 font-medium">Category</th>
+                <th className="px-6 py-4 font-medium">Monthly Bill</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800">
               {isLoading ? (
                 <tr>
-                  <td colSpan={7} className="px-6 py-12 text-center">
+                  <td colSpan={8} className="px-6 py-12 text-center">
                     <Loader2 className="animate-spin text-amber-400 mx-auto mb-2" size={24} />
                     <p className="text-slate-500">Loading entries...</p>
                   </td>
                 </tr>
               ) : waitlist.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="px-6 py-12 text-center text-slate-500">
+                  <td colSpan={8} className="px-6 py-12 text-center text-slate-500">
                     No waitlist entries found.
                   </td>
                 </tr>
@@ -157,6 +159,9 @@ export const Admin = () => {
                       <span className="px-2 py-1 bg-slate-800 rounded text-xs">{entry.discom}</span>
                     </td>
                     <td className="px-6 py-4">{entry.category}</td>
+                    <td className="px-6 py-4 text-amber-400 font-medium">
+                      {entry.monthly_bill ? `₹${Number(entry.monthly_bill).toLocaleString('en-IN')}` : '-'}
+                    </td>
                   </tr>
                 ))
               )}
