@@ -12,7 +12,8 @@ export const Signup = () => {
     email: '',
     city: '',
     discom: 'JVVNL',
-    category: 'Domestic'
+    category: 'Domestic',
+    monthly_bill: ''
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -130,6 +131,20 @@ export const Signup = () => {
               <option value="JdVVNL">JdVVNL (Jodhpur)</option>
             </select>
           </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-slate-400 mb-2">Monthly Electricity Bill (₹)</label>
+          <input
+            required
+            type="number"
+            min="0"
+            placeholder="e.g. 2500"
+            className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-amber-400 transition-colors"
+            value={formData.monthly_bill}
+            onChange={(e) => setFormData({...formData, monthly_bill: e.target.value})}
+          />
+          <p className="text-xs text-slate-500 mt-1">We use this to calculate your exact savings</p>
         </div>
 
         <div>

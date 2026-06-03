@@ -18,14 +18,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         city VARCHAR(255) NOT NULL,
         discom VARCHAR(255) NOT NULL,
         category VARCHAR(255) NOT NULL,
+        monthly_bill NUMERIC,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
+      ALTER TABLE waitlist ADD COLUMN IF NOT EXISTS monthly_bill NUMERIC;
     `;
 
-    const { name, whatsapp, email, city, discom, category } = req.body;
+    const { name, whatsapp, email, city, discom, category, monthly_bill } = req.body;
     await sql`
-      INSERT INTO waitlist (name, whatsapp, email, city, discom, category)
-      VALUES (${name}, ${whatsapp}, ${email}, ${city}, ${discom}, ${category})
+      INSERT INTO waitlist (name, whatsapp, email, city, discom, category, monthly_bill)
+      VALUES (${name}, ${whatsapp}, ${email}, ${city}, ${discom}, ${category}, ${monthly_bill || null})
     `;
     res.status(200).json({ success: true });
   } catch (err: any) {
