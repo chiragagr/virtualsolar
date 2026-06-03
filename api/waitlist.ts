@@ -1,5 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { sql } from '@vercel/postgres';
+import { neon } from '@neondatabase/serverless';
+
+const sql = neon(process.env.DATABASE_URL!);
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'GET') {
@@ -12,7 +14,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { rows } = await sql`SELECT * FROM waitlist ORDER BY created_at DESC`;
+    const rows = await sql`SELECT * FROM waitlist ORDER BY created_at DESC`;
     res.status(200).json(rows);
   } catch (err: any) {
     console.error(err);
