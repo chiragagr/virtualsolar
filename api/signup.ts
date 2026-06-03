@@ -20,18 +20,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         category VARCHAR(255) NOT NULL,
         monthly_bill NUMERIC,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-      );
-      ALTER TABLE waitlist ADD COLUMN IF NOT EXISTS monthly_bill NUMERIC;
+      )
+    `;
+
+    await sql`
+      ALTER TABLE waitlist ADD COLUMN IF NOT EXISTS monthly_bill NUMERIC
     `;
 
     const { name, whatsapp, email, city, discom, category, monthly_bill } = req.body;
     await sql`
       INSERT INTO waitlist (name, whatsapp, email, city, discom, category, monthly_bill)
-      VALUES (${name}, ${whatsapp}, ${email}, ${city}, ${discom}, ${category}, ${monthly_bill || null})
+      VALUES (${name}, ${whatsapp}, ${email}, ${city}, ${discom}, ${category}, ${monthly_bill ? Number(monthly_bill) : null})
     `;
     res.status(200).json({ success: true });
   } catch (err: any) {
     console.error(err);
-    res.status(500).json({ error: 'Failed to save to database' });
+    res.status(500).json({ error: err.message || 'Failed to save to database' });
   }
 }
